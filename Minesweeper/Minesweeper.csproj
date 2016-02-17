@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons.cs" />
+    <Compile Include="Playboard.cs" />
     <Compile Include="Mines.cs" />
     <Compile Include="FormLvlSelection.cs">
       <SubType>Form</SubType>
@@ -97,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lvl3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
