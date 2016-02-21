@@ -1,6 +1,6 @@
 ﻿namespace Minesweeper
 {
-    partial class FormLevelOne
+    partial class FormLevel
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,11 @@
         {
             this.menuStripLvlOne = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMinesweeperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripLvlOne.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,37 +46,25 @@
             this.helpToolStripMenuItem});
             this.menuStripLvlOne.Location = new System.Drawing.Point(0, 0);
             this.menuStripLvlOne.Name = "menuStripLvlOne";
-            this.menuStripLvlOne.Size = new System.Drawing.Size(581, 24);
+            this.menuStripLvlOne.Size = new System.Drawing.Size(439, 24);
             this.menuStripLvlOne.TabIndex = 0;
             this.menuStripLvlOne.Text = "menuStripLvlOne";
             // 
             // gameToolStripMenuItem
             // 
             this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem,
-            this.optionsToolStripMenuItem,
+            this.changeLevelToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
             this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.gameToolStripMenuItem.Text = "Game";
             // 
-            // newGameToolStripMenuItem
-            // 
-            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.newGameToolStripMenuItem.Text = "New Game";
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.optionsToolStripMenuItem.Text = "Options";
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -100,18 +87,24 @@
             this.aboutMinesweeperToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutMinesweeperToolStripMenuItem.Text = "About Minesweeper";
             // 
-            // FormLevelOne
+            // changeLevelToolStripMenuItem
+            // 
+            this.changeLevelToolStripMenuItem.Name = "changeLevelToolStripMenuItem";
+            this.changeLevelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeLevelToolStripMenuItem.Text = "Change Level";
+            this.changeLevelToolStripMenuItem.Click += new System.EventHandler(this.changeLevelToolStripMenuItem_Click);
+            // 
+            // FormLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(581, 498);
+            this.ClientSize = new System.Drawing.Size(439, 293);
             this.Controls.Add(this.menuStripLvlOne);
             this.MainMenuStrip = this.menuStripLvlOne;
-            this.Name = "FormLevelOne";
+            this.Name = "FormLevel";
             this.Text = "Minesweeper";
-            this.Activated += new System.EventHandler(this.FormLevelOne_Activated);
-            this.Load += new System.EventHandler(this.FormLevelOne_Load);
+            this.Load += new System.EventHandler(this.FormLevel_Load);
             this.menuStripLvlOne.ResumeLayout(false);
             this.menuStripLvlOne.PerformLayout();
             this.ResumeLayout(false);
@@ -123,11 +116,10 @@
 
         private System.Windows.Forms.MenuStrip menuStripLvlOne;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMinesweeperToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeLevelToolStripMenuItem;
     }
 }

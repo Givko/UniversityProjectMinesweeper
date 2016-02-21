@@ -10,33 +10,30 @@ namespace Minesweeper
 {
     public class Mines
     {
-        //Initialize playBoard as matrix
-        private static sbyte[,] playBoardMatrix = new sbyte[6, 6];
         //Initialize Playboard object
+        private sbyte[,] playBoardMatrix;
         private Playboard playBoard = new Playboard();
-        //Inialize FormLevelOne object
         public Mines()
         {
 
         }
-
         //On FormLoad generate randomlly the mines onto the playBoard
-        public void Generate()
+        public void Generate(sbyte mines, sbyte rows, sbyte cols)
         {
-            sbyte mines = 6;
+            sbyte[,] matrix = new sbyte[rows, cols];
             Random generateBomb = new Random();
 
             //Iterate through the Play Board until all mines are positioned(when mines = 0)
             while (mines > 0)
             {
-                for (int row = 1; row < playBoardMatrix.GetLength(0) - 1; row++)
+                for (int row = 1; row < matrix.GetLength(0) - 1; row++)
                 {
-                    for (int col = 1; col < playBoardMatrix.GetLength(1) - 1; col++)
+                    for (int col = 1; col < matrix.GetLength(1) - 1; col++)
                     {
                         //If the current cell has a mine skip it
-                        if (playBoardMatrix[row, col] != 1 && generateBomb.Next(0, 6) == 1)
+                        if (matrix[row, col] != 1 && generateBomb.Next(0, 6) == 1)
                         {
-                            playBoardMatrix[row, col] = 1;
+                            matrix[row, col] = 1;
                             mines--;
                             if (mines == 0)
                             {
@@ -50,6 +47,7 @@ namespace Minesweeper
                     }
                 }
             }
+            playBoardMatrix = matrix;
         }
         public void CheckForMines(Button clickedButton, Button[,] buttons)
         {
@@ -57,7 +55,6 @@ namespace Minesweeper
             sbyte curRow = rowCol[0];
             sbyte curCol = rowCol[1];
             sbyte minesAround = 0;
-            string mines = "";
 
             //Check if the current cell is outside of the playboard
             if (curRow < 0 || curCol < 0 || curRow == playBoardMatrix.GetLength(0) || curCol == playBoardMatrix.GetLength(1))
@@ -66,15 +63,16 @@ namespace Minesweeper
             }
             if (playBoardMatrix[curRow, curCol] == 1)
             {
-                //FormLevelOne frmLevelOne = new FormLevelOne();
-                //FormLvlSelection frmLevelSelection = new FormLvlSelection();
                 playBoard.ClickBombs(buttons, playBoardMatrix);
-                DialogResult tryAgain = MessageBox.Show("You have hit a mine! Do you want to try again? ", "BOOM!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //if (tryAgain == DialogResult.Yes)
-                //{
-                //    frmLevelOne.Close();
-                //    frmLevelSelection.Visible = true;
-                //}
+                DialogResult tryAgain = MessageBox.Show("You clicked a Bomb! Do you want to try again?", "BOOM!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (tryAgain == DialogResult.Yes)
+                {
+                    FormLevel.ActiveForm.Text = "New Game";
+                }
+                else if (tryAgain == DialogResult.No)
+                {
+                    FormLevel.ActiveForm.Close();
+                }
                 return;
             }
             if (curRow + 1 < playBoardMatrix.GetLength(0))
@@ -136,11 +134,6 @@ namespace Minesweeper
             clickedButton.Text = minesAround.ToString();
             clickedButton.Enabled = false;
             clickedButton.BackColor = Color.LightGray;
-
-            if (clickedButton.Text == "0")
-            {
-                playBoard.ClearField(clickedButton, buttons, curRow, curCol);
-            }
         }
     }
 }

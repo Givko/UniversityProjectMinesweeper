@@ -24,80 +24,84 @@ namespace Minesweeper
                 }
             }
         }
-        public void ClearField(Button clickedButton, Button[,] playBoard, int i, int j)
+        public void ClearField(Button clickedButton, Button[,] playBoard)
         {
-            if (i == 0)
+            int[] rowCol = clickedButton.Name.ToString().Split(new string[] { "btnR", "C" }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+            int row = rowCol[0];
+            int col = rowCol[1];
+
+            if (row == 0)
             {
-                if (j == 0)
+                if (col == 0)
                 {
-                    playBoard[i, j + 1].PerformClick();
-                    playBoard[i + 1, j].PerformClick();
-                    playBoard[i + 1, j + 1].PerformClick();
+                    playBoard[row, col + 1].PerformClick();
+                    playBoard[row + 1, col].PerformClick();
+                    playBoard[row + 1, col + 1].PerformClick();
                 }
-                else if (j == playBoard.GetLength(1) - 1)
+                else if (col == playBoard.GetLength(1) - 1)
                 {
-                    playBoard[i + 1, j].PerformClick();
-                    playBoard[i + 1, j - 1].PerformClick();
-                    playBoard[i, j - 1].PerformClick();
+                    playBoard[row + 1, col].PerformClick();
+                    playBoard[row + 1, col - 1].PerformClick();
+                    playBoard[row, col - 1].PerformClick();
                 }
                 else
                 {
-                    playBoard[i, j - 1].PerformClick();
-                    playBoard[i, j + 1].PerformClick();
-                    playBoard[i + 1, j - 1].PerformClick();
-                    playBoard[i + 1, j].PerformClick();
-                    playBoard[i + 1, j + 1].PerformClick();
+                    playBoard[row, col - 1].PerformClick();
+                    playBoard[row, col + 1].PerformClick();
+                    playBoard[row + 1, col - 1].PerformClick();
+                    playBoard[row + 1, col].PerformClick();
+                    playBoard[row + 1, col + 1].PerformClick();
                 }
             }
-            else if (i == playBoard.GetLength(0) - 1)
+            else if (row == playBoard.GetLength(0) - 1)
             {
-                if (j == 0)
+                if (col == 0)
                 {
-                    playBoard[i, j + 1].PerformClick();
-                    playBoard[i - 1, j].PerformClick();
-                    playBoard[i - 1, j + 1].PerformClick();
+                    playBoard[row, col + 1].PerformClick();
+                    playBoard[row - 1, col].PerformClick();
+                    playBoard[row - 1, col + 1].PerformClick();
                 }
-                else if (j == playBoard.GetLength(1) - 1)
+                else if (col == playBoard.GetLength(1) - 1)
                 {
-                    playBoard[i - 1, j].PerformClick();
-                    playBoard[i - 1, j - 1].PerformClick();
-                    playBoard[i, j - 1].PerformClick();
+                    playBoard[row - 1, col].PerformClick();
+                    playBoard[row - 1, col - 1].PerformClick();
+                    playBoard[row, col - 1].PerformClick();
                 }
                 else
                 {
-                    playBoard[i, j - 1].PerformClick();
-                    playBoard[i, j + 1].PerformClick();
-                    playBoard[i - 1, j - 1].PerformClick();
-                    playBoard[i - 1, j].PerformClick();
-                    playBoard[i - 1, j + 1].PerformClick();
+                    playBoard[row, col - 1].PerformClick();
+                    playBoard[row, col + 1].PerformClick();
+                    playBoard[row - 1, col - 1].PerformClick();
+                    playBoard[row - 1, col].PerformClick();
+                    playBoard[row - 1, col + 1].PerformClick();
                 }
             }
-            else if (j == 0)
+            else if (col == 0)
             {
-                playBoard[i, j + 1].PerformClick();
-                playBoard[i - 1, j].PerformClick();
-                playBoard[i - 1, j + 1].PerformClick();
-                playBoard[i + 1, j].PerformClick();
-                playBoard[i + 1, j + 1].PerformClick();
+                playBoard[row, col + 1].PerformClick();
+                playBoard[row - 1, col].PerformClick();
+                playBoard[row - 1, col + 1].PerformClick();
+                playBoard[row + 1, col].PerformClick();
+                playBoard[row + 1, col + 1].PerformClick();
             }
-            else if (j == playBoard.GetLength(1) - 1)
+            else if (col == playBoard.GetLength(1) - 1)
             {
-                playBoard[i, j - 1].PerformClick();
-                playBoard[i - 1, j].PerformClick();
-                playBoard[i - 1, j - 1].PerformClick();
-                playBoard[i + 1, j].PerformClick();
-                playBoard[i + 1, j - 1].PerformClick();
+                playBoard[row, col - 1].PerformClick();
+                playBoard[row - 1, col].PerformClick();
+                playBoard[row - 1, col - 1].PerformClick();
+                playBoard[row + 1, col].PerformClick();
+                playBoard[row + 1, col - 1].PerformClick();
             }
             else
             {
-                playBoard[i, j - 1].PerformClick();
-                playBoard[i, j + 1].PerformClick();
-                playBoard[i - 1, j - 1].PerformClick();
-                playBoard[i - 1, j].PerformClick();
-                playBoard[i - 1, j + 1].PerformClick();
-                playBoard[i + 1, j - 1].PerformClick();
-                playBoard[i + 1, j].PerformClick();
-                playBoard[i + 1, j + 1].PerformClick();
+                playBoard[row, col - 1].PerformClick();
+                playBoard[row, col + 1].PerformClick();
+                playBoard[row - 1, col - 1].PerformClick();
+                playBoard[row - 1, col].PerformClick();
+                playBoard[row - 1, col + 1].PerformClick();
+                playBoard[row + 1, col - 1].PerformClick();
+                playBoard[row + 1, col].PerformClick();
+                playBoard[row + 1, col + 1].PerformClick();
             }
         }
     }

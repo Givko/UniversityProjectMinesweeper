@@ -32,11 +32,11 @@
             this.lblLvlTwoInfo = new System.Windows.Forms.Label();
             this.lblLvlThreeInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbLevelThree = new System.Windows.Forms.PictureBox();
+            this.pbLevelTwo = new System.Windows.Forms.PictureBox();
             this.pbLvlOne = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLevelThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLevelTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLvlOne)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,25 +80,27 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Please, select level.";
             // 
-            // pictureBox2
+            // pbLevelThree
             // 
-            this.pictureBox2.Image = global::Minesweeper.Properties.Resources.lvl3;
-            this.pictureBox2.Location = new System.Drawing.Point(284, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(109, 108);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.pbLevelThree.Image = global::Minesweeper.Properties.Resources.lvl3;
+            this.pbLevelThree.Location = new System.Drawing.Point(284, 30);
+            this.pbLevelThree.Name = "pbLevelThree";
+            this.pbLevelThree.Size = new System.Drawing.Size(109, 108);
+            this.pbLevelThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLevelThree.TabIndex = 2;
+            this.pbLevelThree.TabStop = false;
+            this.pbLevelThree.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox1
+            // pbLevelTwo
             // 
-            this.pictureBox1.Image = global::Minesweeper.Properties.Resources.lvl2;
-            this.pictureBox1.Location = new System.Drawing.Point(148, 30);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 108);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbLevelTwo.Image = global::Minesweeper.Properties.Resources.lvl2;
+            this.pbLevelTwo.Location = new System.Drawing.Point(148, 30);
+            this.pbLevelTwo.Name = "pbLevelTwo";
+            this.pbLevelTwo.Size = new System.Drawing.Size(109, 108);
+            this.pbLevelTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLevelTwo.TabIndex = 1;
+            this.pbLevelTwo.TabStop = false;
+            this.pbLevelTwo.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pbLvlOne
             // 
@@ -121,13 +123,14 @@
             this.Controls.Add(this.lblLvlThreeInfo);
             this.Controls.Add(this.lblLvlTwoInfo);
             this.Controls.Add(this.lblLvlOneInfo);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbLevelThree);
+            this.Controls.Add(this.pbLevelTwo);
             this.Controls.Add(this.pbLvlOne);
             this.Name = "FormLvlSelection";
             this.Text = "Minesweeper";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.FormLvlSelection_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLevelThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLevelTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLvlOne)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,8 +140,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbLvlOne;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbLevelTwo;
+        private System.Windows.Forms.PictureBox pbLevelThree;
         private System.Windows.Forms.Label lblLvlOneInfo;
         private System.Windows.Forms.Label lblLvlTwoInfo;
         private System.Windows.Forms.Label lblLvlThreeInfo;

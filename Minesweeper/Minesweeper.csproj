@@ -52,16 +52,16 @@
     <Compile Include="FormLvlSelection.Designer.cs">
       <DependentUpon>FormLvlSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLevelOne.cs">
+    <Compile Include="FormLevel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLevelOne.Designer.cs">
-      <DependentUpon>FormLevelOne.cs</DependentUpon>
+    <Compile Include="FormLevel.Designer.cs">
+      <DependentUpon>FormLevel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Minesweeper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormLevelOne.resx">
-      <DependentUpon>FormLevelOne.cs</DependentUpon>
+    <EmbeddedResource Include="FormLevel.resx">
+      <DependentUpon>FormLevel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLvlSelection.resx">
       <DependentUpon>FormLvlSelection.cs</DependentUpon>
