@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minesweeper
@@ -134,6 +131,28 @@ namespace Minesweeper
             clickedButton.Text = minesAround.ToString();
             clickedButton.Enabled = false;
             clickedButton.BackColor = Color.LightGray;
+        }
+        public void IsWinner(Button[,] buttons)
+        {
+            bool isBomb = true;
+            for (int row = 0; row < buttons.GetLength(0); row++)
+            {
+                for (int col = 0; col < buttons.GetLength(1); col++)
+                {
+                    if (buttons[row, col].Enabled == true)
+                    {
+                        if (playBoardMatrix[row, col] == 0)
+                        {
+                            isBomb = false;
+                        }
+                    }
+                }
+            }
+            if (isBomb)
+            {
+                MessageBox.Show("You Won","WINNER");
+                FormLevel.ActiveForm.Close();
+            }
         }
     }
 }
