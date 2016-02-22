@@ -148,6 +148,7 @@ namespace Minesweeper
                     }
                 }
             }
+
             if (isBomb)
             {
                 MessageBox.Show("You Won","WINNER");

@@ -15,7 +15,8 @@ namespace Minesweeper
                 {
                     if (fields[i, j] == 1)
                     {
-                        playboard[i, j].BackColor = Color.Red;
+                        playboard[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+                        playboard[i, j].BackgroundImage = Properties.Resources.bomb;
                         playboard[i, j].Enabled = false;
                     }
                 }

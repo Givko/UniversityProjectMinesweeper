@@ -17,7 +17,7 @@ namespace Minesweeper
         }
         private void pbLvlOne_Click(object sender, EventArgs e)
         {
-            FormLevel levelOne = new FormLevel(15, 9, 9);
+            FormLevel levelOne = new FormLevel(10, 9, 9);
             levelOne.Text = "Level One";
             levelOne.FormClosed += (sender1, ex1) => this.Close();
             levelOne.TextChanged += (sender2, ex2) =>
@@ -31,7 +31,7 @@ namespace Minesweeper
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormLevel levelTwo = new FormLevel(60, 16, 16);
+            FormLevel levelTwo = new FormLevel(40, 16, 16);
             levelTwo.Text = "Level Two";
             levelTwo.FormClosed += (sender1, ex) => this.Close();
             levelTwo.TextChanged += (sender2, ex2) =>

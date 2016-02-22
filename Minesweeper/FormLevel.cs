@@ -51,22 +51,37 @@ namespace Minesweeper
                     btn.Name = string.Format("btnR{0}C{1}", i, j);
                     btn.Click += (sender1, ex) =>
                     {
+                        if (btn.Text == "B")
+                        {
+                            return;
+                        }
                         mines.CheckForMines(btn, fields);
                         if (btn.Text == "0")
                         {
                             buttons.ClearField(btn, fields);
                         }
                         clicks++;
-                        if (clicks > (rows*cols - numMines*2))
+                        if (clicks > (rows * cols - numMines * 2))
                         {
                             mines.IsWinner(fields);
+                        }
+                    };
+                    btn.MouseDown += (sender2, ex2) =>
+                    {
+                        if (ex2.Button == MouseButtons.Right && btn.Text == "")
+                        {
+                            btn.Text = "B";
+                        }
+                        else if (ex2.Button == MouseButtons.Right && btn.Text == "B")
+                        {
+                            btn.Text = "";   
                         }
                     };
                     fields[i, j] = btn;
                     this.Controls.Add(btn);
                 }
             }
-            lblBombs.Text = string.Format("Bombs: {0}",numMines);
+            lblBombs.Text = string.Format("Bombs: {0}", numMines);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -102,7 +117,7 @@ namespace Minesweeper
         private void timer1_Tick(object sender, EventArgs e)
         {
             timePlayed++;
-            lblTime.Text = string.Format("Time played:{0}s",timePlayed);
+            lblTime.Text = string.Format("Time played:{0}s", timePlayed);
         }
     }
 }
