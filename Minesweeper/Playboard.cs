@@ -7,6 +7,7 @@ namespace Minesweeper
 {
     class Playboard
     {
+        //Find and click all mines
         public void ClickBombs(Button[,] playboard, sbyte[,] fields)
         {
             for (int i = 0; i < playboard.GetLength(0); i++)
@@ -22,8 +23,11 @@ namespace Minesweeper
                 }
             }
         }
+
+        //Click all fields around the clicked field 
         public void ClearField(Button clickedButton, Button[,] playBoard)
         {
+            //Get coordinates from the name of the clicked field
             int[] rowCol = clickedButton.Name.ToString().Split(new string[] { "btnR", "C" }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
             int row = rowCol[0];
             int col = rowCol[1];

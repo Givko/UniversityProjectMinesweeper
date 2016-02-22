@@ -50,7 +50,7 @@
             this.helpToolStripMenuItem});
             this.menuStripLvlOne.Location = new System.Drawing.Point(0, 0);
             this.menuStripLvlOne.Name = "menuStripLvlOne";
-            this.menuStripLvlOne.Size = new System.Drawing.Size(439, 24);
+            this.menuStripLvlOne.Size = new System.Drawing.Size(291, 24);
             this.menuStripLvlOne.TabIndex = 0;
             this.menuStripLvlOne.Text = "menuStripLvlOne";
             // 
@@ -66,7 +66,7 @@
             // changeLevelToolStripMenuItem
             // 
             this.changeLevelToolStripMenuItem.Name = "changeLevelToolStripMenuItem";
-            this.changeLevelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changeLevelToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.changeLevelToolStripMenuItem.Text = "Change Level";
             this.changeLevelToolStripMenuItem.Click += new System.EventHandler(this.changeLevelToolStripMenuItem_Click);
             // 
@@ -74,7 +74,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -132,7 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(439, 293);
+            this.ClientSize = new System.Drawing.Size(291, 287);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblBombs);
             this.Controls.Add(this.menuStripLvlOne);
@@ -140,7 +140,6 @@
             this.Name = "FormLevel";
             this.Text = "Minesweeper";
             this.Load += new System.EventHandler(this.FormLevel_Load);
-            this.TextChanged += new System.EventHandler(this.FormLevel_TextChanged);
             this.menuStripLvlOne.ResumeLayout(false);
             this.menuStripLvlOne.PerformLayout();
             this.ResumeLayout(false);

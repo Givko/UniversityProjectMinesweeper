@@ -8,8 +8,9 @@ namespace Minesweeper
     public class Mines
     {
         //Initialize Playboard object
+        private Playboard playBoardButtons = new Playboard();
+        //Initialize the playboard matrix
         private sbyte[,] playBoardMatrix;
-        private Playboard playBoard = new Playboard();
         public Mines()
         {
 
@@ -46,6 +47,8 @@ namespace Minesweeper
             }
             playBoardMatrix = matrix;
         }
+
+        //Check if there are any mines around the clicked field
         public void CheckForMines(Button clickedButton, Button[,] buttons)
         {
             sbyte[] rowCol = clickedButton.Name.ToString().Split(new string[] { "btnR", "C" }, StringSplitOptions.RemoveEmptyEntries).Select(sbyte.Parse).ToArray();
@@ -60,7 +63,7 @@ namespace Minesweeper
             }
             if (playBoardMatrix[curRow, curCol] == 1)
             {
-                playBoard.ClickBombs(buttons, playBoardMatrix);
+                playBoardButtons.ClickBombs(buttons, playBoardMatrix);
                 DialogResult tryAgain = MessageBox.Show("You clicked a Bomb! Do you want to try again?", "BOOM!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (tryAgain == DialogResult.Yes)
                 {
@@ -132,6 +135,7 @@ namespace Minesweeper
             clickedButton.Enabled = false;
             clickedButton.BackColor = Color.LightGray;
         }
+        //Check if the player has found all the nonmine fields
         public void IsWinner(Button[,] buttons)
         {
             bool isBomb = true;

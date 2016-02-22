@@ -8,14 +8,18 @@ namespace Minesweeper
     public partial class FormLevel : Form
     {
 
-        //Initialize object of type MineControler
+        //Initialize object of type Mines
         Playboard buttons = new Playboard();
         Mines mines = new Mines();
+        //Number of Mines,rows and cols(of the playboard)
         private sbyte numMines;
         private sbyte rows;
         private sbyte cols;
+        //Number of times clicked
         private int clicks;
+        //Time played
         private int timePlayed;
+
         public FormLevel(sbyte mines, sbyte numRows, sbyte numCols)
         {
             InitializeComponent();
@@ -23,7 +27,7 @@ namespace Minesweeper
             rows = numRows;
             cols = numCols;
         }
-
+        // Generate the playboard of buttons and resize the form depending on level
         private void FormLevel_Load(object sender, EventArgs e)
         {
             FormLvlSelection.ActiveForm.Hide();
@@ -43,6 +47,7 @@ namespace Minesweeper
             {
                 for (int j = 0; j < fields.GetLength(1); j++)
                 {
+                    //Set all the properties and events needed to the button
                     Button btn = new Button();
                     btn.BackColor = Color.White;
                     btn.Text = "";
@@ -51,20 +56,7 @@ namespace Minesweeper
                     btn.Name = string.Format("btnR{0}C{1}", i, j);
                     btn.Click += (sender1, ex) =>
                     {
-                        if (btn.Text == "B")
-                        {
-                            return;
-                        }
-                        mines.CheckForMines(btn, fields);
-                        if (btn.Text == "0")
-                        {
-                            buttons.ClearField(btn, fields);
-                        }
-                        clicks++;
-                        if (clicks > (rows * cols - numMines * 2))
-                        {
-                            mines.IsWinner(fields);
-                        }
+                        ButtonClickEvent(btn, fields);          
                     };
                     btn.MouseDown += (sender2, ex2) =>
                     {
@@ -82,11 +74,6 @@ namespace Minesweeper
                 }
             }
             lblBombs.Text = string.Format("Bombs: {0}", numMines);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,15 +96,28 @@ namespace Minesweeper
             Process.Start("https://en.wikipedia.org/wiki/Microsoft_Minesweeper");
         }
 
-        private void FormLevel_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             timePlayed++;
             lblTime.Text = string.Format("Time played:{0}s", timePlayed);
+        }
+        //What to do when the button is clicked
+        private void ButtonClickEvent(Button btn,Button[,] fields)
+        {
+            if (btn.Text == "B")
+            {
+                return;
+            }
+            mines.CheckForMines(btn, fields);
+            if (btn.Text == "0")
+            {
+                buttons.ClearField(btn, fields);
+            }
+            clicks++;
+            if (clicks > (rows * cols - numMines * 2))
+            {
+                mines.IsWinner(fields);
+            }
         }
     }
 }
